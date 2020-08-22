@@ -2,10 +2,10 @@
 
 // Once they have clicked Generate Password, prompt the user to input password needs
 var generatePassword = function () {
-  var charLength = parseInt(window.prompt("How many characters would you like the password to be?"));
-   // Handle case for length of 0
-  if (!charLength || charLength === 0) {
-    window.alert("Please enter a length greater than 0.");
+  var charLength = parseInt(window.prompt("How many characters would you like your password to be? Please enter a number between 8 and 128."));
+   // Handle case for valid lengths
+  if (!charLength || charLength < 8 || charLength > 128) {
+    window.alert("Please enter a number between 8 and 128");
     console.log(generatePassword.charLength);
     generatePassword ();
     }
@@ -23,6 +23,7 @@ var generatePassword = function () {
   // Handle no inputs choosen
   if (!confirmUpper && !confirmLower && !confirmSpec && !confirmNum) {
     window.alert ("You must select at least 1 input to include");
+    generatePassword ();
   }
   else {
     writePassword ();

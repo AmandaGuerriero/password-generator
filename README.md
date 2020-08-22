@@ -23,10 +23,10 @@ https://amandaguerriero.github.io/password-generator/
 
 ## Screenshots
 ### Password Generator Application
-![Password Generator](https://github.com/AmandaGuerriero/portfolio/blob/master/assets/images/pass-generator.png?raw=true)
+![Password Generator](https://github.com/AmandaGuerriero/password-generator/blob/master/assets/images/pass-generator.png?raw=true)
 
 ### Example Output
-![Example](https://github.com/AmandaGuerriero/portfolio/blob/master/assets/images/pass-generator-example.png?raw=true)
+![Example](https://github.com/AmandaGuerriero/password-generator/blob/master/assets/images/pass-generator-example.png?raw=true)
 
 ## Contribution
 Made by Amanda Guerriero!

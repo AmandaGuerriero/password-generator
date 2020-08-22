@@ -73,13 +73,13 @@ var generatePassword = function () {
 
   // Pick random characters from each array
 
-  var passwordInputs = [useLower, useNum, useUpper, useSpec]
-  console.log (passwordInputs);
+  // var passwordInputs = [useLower, useNum, useUpper, useSpec]
+  // console.log (passwordInputs);
 
-  for (var i = 0; i < charLength; i++) {
-    var randomPassword = passwordInputs[Math.floor(Math.random() * passwordInputs.charlength)];
-    return randomPassword
-  }
+  // for (var i = 0; i < charLength; i++) {
+  //   var randomPassword = passwordInputs[Math.floor(Math.random() * passwordInputs.charlength)];
+  //   return randomPassword
+  // }
 };
 
 // Get references to the #generate element
@@ -87,7 +87,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // var password = generatePassword(); - Was causing it to loop twice
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
@@ -97,8 +97,4 @@ function writePassword() {
 
 generateBtn.addEventListener("click", generatePassword);
 
-
-// Use confirm prompts to figure out how to conditionally record response to return
-
-// Processing user input and providing an output - return
 

@@ -2,10 +2,12 @@
 
 // Once they have clicked Generate Password, prompt the user to input password needs
 var generatePassword = function () {
-  charLength = window.prompt("How many characters would you like the password to be?");
+  var charLength = parseInt(window.prompt("How many characters would you like the password to be?"));
+   // Handle case for length of 0
   if (!charLength || charLength === 0) {
-    window.alert("Please enter a length greater than 0")
+    window.alert("Please enter a length greater than 0.");
     console.log(generatePassword.charLength);
+    generatePassword ();
     }
   else {
     confirmUpper = window.confirm("Do you want to include upper cased letters?");
@@ -19,7 +21,7 @@ var generatePassword = function () {
   }
 
   // Handle no inputs choosen
-  if (!confirmUpper && !confirmLower & !confirmSpec & !confirmNum) {
+  if (!confirmUpper && !confirmLower && !confirmSpec && !confirmNum) {
     window.alert ("You must select at least 1 input to include");
   }
   else {
@@ -61,8 +63,6 @@ function writePassword() {
 generateBtn.addEventListener("click", generatePassword);
 
 // Error message for not entering a length or a length of 0
-
-// Address the all cancel options
 
 // Use confirm prompts to figure out how to conditionally record response to return
 

@@ -17,20 +17,25 @@ var upperLetters = [
   "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 ]
 
-// Global Functions
-var randomNumber = function() {
-  var value = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
-  return value;
+// Randomizer that my tutor helped me with
+function randomNumber(arr) {
+  var value = Math.floor(Math.random() * arr.length);
+  var valueElement = arr[value];
+
+  return valueElement;
 };
+
 
 // Click Generate Password, prompt the user to input password needs
 var generatePassword = function () {
+  var possibleCharacters = [];
+  var guaranteedCharacters = [];
+  var results = [];
   var charLength = parseInt(window.prompt("How many characters would you like your password to be? Please enter a number between 8 and 128."));
    // Handle case for invalid lengths
   if (!charLength || charLength < 8 || charLength > 128) {
     window.alert("Please enter a number between 8 and 128");
     console.log(charLength);
-    generatePassword ();
     }
    // Tell user how long password will be and prompt for inputs
   else {
@@ -49,39 +54,35 @@ var generatePassword = function () {
   // Handle no inputs choosen
   if (!confirmUpper && !confirmLower && !confirmSpec && !confirmNum) {
     window.alert ("You must select at least 1 input to include");
-    generatePassword ();
   }
   // Log Confirmations
   else {
     if (confirmUpper) {
       var useUpper = upperLetters;
-      console.log (useUpper);
+      possibleCharacters = possibleCharacters.concat(useUpper);
     }
     if (confirmLower) {
       var useLower = lowerLetters;
-      console.log (useLower);
+      possibleCharacters = possibleCharacters.concat(useLower);
     }
     if (confirmSpec) {
       var useSpec = specialCharacters;
-      console.log (useSpec);
+      possibleCharacters = possibleCharacters.concat(useSpec);
     }
     if (confirmNum) {
       var useNum = numbers;
-      console.log (useNum);
+      possibleCharacters = possibleCharacters.concat(useNum);
     }
   }
-
-  // Pick random characters from each array
-
-  // var passwordInputs = [useLower, useNum, useUpper, useSpec]
-  // console.log (passwordInputs);
-
-  // for (var i = 0; i < charLength; i++) {
-  //   var randomPassword = passwordInputs[Math.floor(Math.random() * passwordInputs.charlength)];
-  //   return randomPassword
-  // }
-};
-
+  console.log(possibleCharacters);
+  console.log(charLength);
+  for (var i = 0; i < charLength; i++) {
+      var guaranteedCharacters = randomNumber(possibleCharacters);
+      results.push(guaranteedCharacters);
+  };
+  console.log(results.join(""));
+  return results.join("");
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 

@@ -6,20 +6,23 @@ var generatePassword = function () {
    // Handle case for valid lengths
   if (!charLength || charLength < 8 || charLength > 128) {
     window.alert("Please enter a number between 8 and 128");
-    console.log(generatePassword.charLength);
+    console.log(charLength);
     generatePassword ();
     }
   else {
-    confirmUpper = window.confirm("Do you want to include upper cased letters?");
-    console.log(generatePassword.confirmUpper);
-    confirmLower = window.confirm("Do you wnat to include lower case letters?");
-    console.log(generatePassword.confirmSpec);
-    confirmSpec = window.confirm("Do you want to include special characters?");
-    console.log(generatePassword.confirmSpec);
-    confirmNum = window.confirm("Do you want to inlcude numbers?");
-    console.log(generatePassword.confirmNum);
+    window.alert ("You password will be " + (charLength) + " characters long");
+    console.log(charLength);
+    var confirmUpper = window.confirm("Do you want to include upper cased letters?");
+    console.log(confirmUpper);
+    var confirmLower = window.confirm("Do you wnat to include lower case letters?");
+    console.log(confirmLower);
+    var confirmSpec = window.confirm("Do you want to include special characters?");
+    console.log(confirmSpec);
+    var confirmNum = window.confirm("Do you want to inlcude numbers?");
+    console.log(confirmNum);
+    
   }
-
+  
   // Handle no inputs choosen
   if (!confirmUpper && !confirmLower && !confirmSpec && !confirmNum) {
     window.alert ("You must select at least 1 input to include");
@@ -63,7 +66,6 @@ function writePassword() {
 
 generateBtn.addEventListener("click", generatePassword);
 
-// Error message for not entering a length or a length of 0
 
 // Use confirm prompts to figure out how to conditionally record response to return
 

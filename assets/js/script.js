@@ -1,6 +1,29 @@
 // Assignment code here
 
-// Once they have clicked Generate Password, prompt the user to input password needs
+// Global Input Variables
+var specialCharacters = [
+  "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"
+];
+
+var numbers = [
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+];
+
+var lowerLetters = [
+  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+];
+
+var upperLetters = [
+  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+]
+
+// Global Functions
+var randomNumber = function() {
+  var value = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
+  return value;
+};
+
+// Click Generate Password, prompt the user to input password needs
 var generatePassword = function () {
   var charLength = parseInt(window.prompt("How many characters would you like your password to be? Please enter a number between 8 and 128."));
    // Handle case for invalid lengths
@@ -28,13 +51,14 @@ var generatePassword = function () {
     window.alert ("You must select at least 1 input to include");
     generatePassword ();
   }
+  // Log Confirmations
   else {
     if (confirmUpper) {
-      var useUpper = letters;
-      console.log ("This is" + useUpper);
+      var useUpper = upperLetters;
+      console.log (useUpper);
     }
     if (confirmLower) {
-      var useLower = letters;
+      var useLower = lowerLetters;
       console.log (useLower);
     }
     if (confirmSpec) {
@@ -46,25 +70,17 @@ var generatePassword = function () {
       console.log (useNum);
     }
   }
+
+  // Pick random characters from each array
+
+  var passwordInputs = [useLower, useNum, useUpper, useSpec]
+  console.log (passwordInputs);
+
+  for (var i = 0; i < charLength; i++) {
+    var randomPassword = passwordInputs[Math.floor(Math.random() * passwordInputs.charlength)];
+    return randomPassword
+  }
 };
-
-var randomNumber = function() {
-  var value = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
-  return value;
-};
-
-var specialCharacters = [
-  "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"
-];
-
-var numbers = [
-  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-];
-
-var letters = [
-  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-];
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");

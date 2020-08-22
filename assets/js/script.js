@@ -1,27 +1,22 @@
 // Assignment code here
 
-var passwordInfo = function () {
-  for(var i=0; i < passwordInfo.charLength; i++) {
-    if (passwordInfo.charLength === 0) {
-      window.alert("Please enter a length greater than 0")
-    }
-    break;
-  }
-}
+// Once they have clicked Generate Password, prompt the user to input password needs
+var generatePassword = function () {
+  charLength = window.prompt("How many characters would you like the password to be?");
+    // if (charLength === 0) {
+    //   window.alert("Please enter a length greater than 0")
+    // }
+    special = window.confirm("Do you want to include special characters?");
+    numbers = window.confirm("Do you want to inlcude numbers?");
+    upper = window.confirm("Do you want to include upper cased letters?");
+    lower = window.confirm("Do you wnat to include lower case letters?");
+  };
 
-var passwordInfo = {
-  charLength: window.prompt("How many characters would you like the password to be?"),
-  special: window.confirm("Do you want to include special characters?"),
-  numbers: window.confirm("Do you want to inlcude numbers?"),
-  upper: window.confirm("Do you want to include upper cased letters?"),
-  lower: window.confirm("Do you wnat to include lower case letters?"),
-}
-
-console.log(passwordInfo.charLength);
-console.log(passwordInfo.special);
-console.log(passwordInfo.numbers);
-console.log(passwordInfo.upper);
-console.log(passwordInfo.lower);
+// console.log(charLength);
+// console.log(generatePassword.special);
+// console.log(passwordInfo.numbers);
+// console.log(passwordInfo.upper);
+// console.log(passwordInfo.lower);
 
 var randomNumber = function() {
   var value = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
@@ -55,7 +50,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
+generatePassword ();
 // Ask for # of characters - prompt
 
 // Do you want special characters?

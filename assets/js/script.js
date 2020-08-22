@@ -93,8 +93,8 @@ function writePassword() {
   passwordText.value = password;
 
 }
-// Add event listener to generate button - Was causing it to loop twice
-// generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 generateBtn.addEventListener("click", generatePassword);
 

@@ -3,20 +3,29 @@
 // Once they have clicked Generate Password, prompt the user to input password needs
 var generatePassword = function () {
   charLength = window.prompt("How many characters would you like the password to be?");
-    // if (charLength === 0) {
-    //   window.alert("Please enter a length greater than 0")
-    // }
-    special = window.confirm("Do you want to include special characters?");
-    numbers = window.confirm("Do you want to inlcude numbers?");
-    upper = window.confirm("Do you want to include upper cased letters?");
-    lower = window.confirm("Do you wnat to include lower case letters?");
-  };
+  if (!charLength || charLength === 0) {
+    window.alert("Please enter a length greater than 0")
+    console.log(generatePassword.charLength);
+    }
+  else {
+    confirmUpper = window.confirm("Do you want to include upper cased letters?");
+    console.log(generatePassword.confirmUpper);
+    confirmLower = window.confirm("Do you wnat to include lower case letters?");
+    console.log(generatePassword.confirmSpec);
+    confirmSpec = window.confirm("Do you want to include special characters?");
+    console.log(generatePassword.confirmSpec);
+    confirmNum = window.confirm("Do you want to inlcude numbers?");
+    console.log(generatePassword.confirmNum);
+  }
 
-// console.log(charLength);
-// console.log(generatePassword.special);
-// console.log(passwordInfo.numbers);
-// console.log(passwordInfo.upper);
-// console.log(passwordInfo.lower);
+  // Handle no inputs choosen
+  if (!confirmUpper && !confirmLower & !confirmSpec & !confirmNum) {
+    window.alert ("You must select at least 1 input to include");
+  }
+  else {
+    writePassword ();
+  }
+};
 
 var randomNumber = function() {
   var value = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
@@ -41,25 +50,15 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  // var password = generatePassword(); - Was causing it to loop twice
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button - Was causing it to loop twice
+// generateBtn.addEventListener("click", writePassword);
 
-generatePassword ();
-// Ask for # of characters - prompt
-
-// Do you want special characters?
-
-// Including numbers
-
-// Upper
-
-// Lower
+generateBtn.addEventListener("click", generatePassword);
 
 // Error message for not entering a length or a length of 0
 

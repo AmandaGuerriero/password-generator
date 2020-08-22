@@ -25,8 +25,7 @@ function randomNumber(arr) {
   return valueElement;
 };
 
-
-// Click Generate Password, prompt the user to input password needs
+// Generate the password based on user inputs
 var generatePassword = function () {
   var possibleCharacters = [];
   var guaranteedCharacters = [];
@@ -35,27 +34,25 @@ var generatePassword = function () {
    // Handle case for invalid lengths
   if (!charLength || charLength < 8 || charLength > 128) {
     window.alert("Please enter a number between 8 and 128");
-    console.log(charLength);
+    console.log(charLength); 
+    return "Please enter a number between 8 and 128. Try again."
     }
-   // Tell user how long password will be and prompt for inputs
+    
+   // Tell user how long password will be and prompt for additional inputs
   else {
     window.alert ("You password will be " + (charLength) + " characters long");
-    console.log(charLength);
     var confirmUpper = window.confirm("Do you want to include upper cased letters?");
-    console.log(confirmUpper);
-    var confirmLower = window.confirm("Do you wnat to include lower case letters?");
-    console.log(confirmLower);
+    var confirmLower = window.confirm("Do you wnat to include lower cased letters?");
     var confirmSpec = window.confirm("Do you want to include special characters?");
-    console.log(confirmSpec);
     var confirmNum = window.confirm("Do you want to inlcude numbers?");
-    console.log(confirmNum);
     
   }
   // Handle no inputs choosen
   if (!confirmUpper && !confirmLower && !confirmSpec && !confirmNum) {
-    window.alert ("You must select at least 1 input to include");
+    window.alert ("You must select at least 1 input to include. Try again");
+    return "You must select at least 1 input to include. Try again."
   }
-  // Log Confirmations
+  // Log Confirmations and concat
   else {
     if (confirmUpper) {
       var useUpper = upperLetters;
@@ -75,7 +72,6 @@ var generatePassword = function () {
     }
   }
   console.log(possibleCharacters);
-  console.log(charLength);
   for (var i = 0; i < charLength; i++) {
       var guaranteedCharacters = randomNumber(possibleCharacters);
       results.push(guaranteedCharacters);
@@ -92,7 +88,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
